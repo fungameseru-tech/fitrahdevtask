@@ -7,6 +7,11 @@ from slugify import slugify
 import os
 import time
 from datetime import timedelta
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv('.env.local')  # For local development with Neon Local Connect
+load_dotenv()  # Fallback to .env
 
 app = Flask(__name__)
 

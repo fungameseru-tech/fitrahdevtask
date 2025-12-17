@@ -6,3 +6,4 @@ psycopg2-binary
 werkzeug
 pillow
 python-slugify
+python-dotenv
