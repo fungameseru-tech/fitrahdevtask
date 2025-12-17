@@ -7,3 +7,4 @@ werkzeug
 pillow
 python-slugify
 python-dotenv
+gunicorn
