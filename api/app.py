@@ -160,15 +160,16 @@ def get_articles():
 
 @app.route('/api/auth/login', methods=['POST'])
 def login():
-    """Admin login - No password check"""
+    """Admin login with password"""
     try:
         data = request.json
         username = data.get('username')
+        password = data.get('password')
         
         user = query_one('SELECT * FROM users WHERE username = %s', (username,))
         
-        # Bypass password - langsung login jika user ditemukan
-        if user:
+        # Check password
+        if user and password == user.get('password_hash'):
             token = jwt.encode({
                 'user_id': user['id'],
                 'exp': datetime.utcnow() + timedelta(days=7)
