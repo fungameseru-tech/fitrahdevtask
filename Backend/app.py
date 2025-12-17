@@ -514,7 +514,7 @@ if __name__ == "__main__":
     # Skip init_db jika sudah ada
     # init_db()
     print("🚀 Starting Flask backend...")
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=False, use_reloader=False)
 else:
     # Serverless: lazy init on first request
     @app.before_request
