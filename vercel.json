@@ -12,12 +12,20 @@
       "dest": "api/index.py"
     },
     {
-      "src": "/(.*\\.(html|css|js|png|jpg|jpeg|gif|svg|ico))",
-      "dest": "Frontend/$1"
+      "src": "/admin.html",
+      "dest": "/Frontend/admin.html"
     },
     {
-      "src": "/(.*)",
-      "dest": "Frontend/index.html"
+      "src": "/script.js",
+      "dest": "/Frontend/script.js"
+    },
+    {
+      "src": "/(.*\\.(css|png|jpg|jpeg|gif|svg|ico))",
+      "dest": "/Frontend/$1"
+    },
+    {
+      "src": "/",
+      "dest": "/Frontend/index.html"
     }
   ]
 }
