@@ -69,3 +69,4 @@ backups/
 tmp/
 temp/
 *.tmp
+.vercel

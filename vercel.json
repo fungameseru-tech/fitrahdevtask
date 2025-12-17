@@ -2,26 +2,28 @@
   "version": 2,
   "builds": [
     {
-      "src": "Backend/app.py",
+      "src": "api/index.py",
       "use": "@vercel/python"
-    },
-    {
-      "src": "Frontend/**",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "Backend/app.py"
+      "dest": "api/index.py"
+    },
+    {
+      "src": "/(.*\\.(html|css|js|png|jpg|jpeg|gif|svg|ico))",
+      "dest": "Frontend/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "Frontend/$1"
+      "dest": "Frontend/index.html"
     }
   ],
   "env": {
     "DATABASE_URL": "@database_url",
-    "JWT_SECRET_KEY": "@jwt_secret_key"
+    "JWT_SECRET_KEY": "@jwt_secret_key",
+    "ALLOWED_ORIGINS": "@allowed_origins",
+    "UPLOAD_FOLDER": "/tmp/uploads"
   }
 }

@@ -1,0 +1,14 @@
+__pycache__
+*.pyc
+.env
+.git
+.vscode
+node_modules
+uploads/
+docker-compose.yml
+docker-compose.prod.yml
+Dockerfile*
+nginx/
+docs/
+*.md
+!README.md
