@@ -19,11 +19,5 @@
       "src": "/(.*)",
       "dest": "Frontend/index.html"
     }
-  ],
-  "env": {
-    "DATABASE_URL": "@database_url",
-    "JWT_SECRET_KEY": "@jwt_secret_key",
-    "ALLOWED_ORIGINS": "@allowed_origins",
-    "UPLOAD_FOLDER": "/tmp/uploads"
-  }
+  ]
 }
