@@ -89,7 +89,7 @@ def init_db():
             else:
                 print("Failed to connect to database after maximum retries")
 
-init_db()
+# init_db()  # Database already initialized
 
 # ============= AUTHENTICATION ROUTES =============
 
@@ -511,7 +511,9 @@ def script():
 
 # Only call init_db if not in serverless environment
 if __name__ == "__main__":
-    init_db()
+    # Skip init_db jika sudah ada
+    # init_db()
+    print("🚀 Starting Flask backend...")
     app.run(host='0.0.0.0', port=5000, debug=True)
 else:
     # Serverless: lazy init on first request
