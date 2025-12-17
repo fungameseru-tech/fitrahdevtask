@@ -496,5 +496,30 @@ def get_dashboard():
         "popular_projects": [p.to_json() for p in popular_projects]
     })
 
+# Serve Frontend files
+@app.route('/')
+def index():
+    return send_from_directory('../Frontend', 'index.html')
+
+@app.route('/admin.html')
+def admin():
+    return send_from_directory('../Frontend', 'admin.html')
+
+@app.route('/script.js')
+def script():
+    return send_from_directory('../Frontend', 'script.js')
+
+# Only call init_db if not in serverless environment
 if __name__ == "__main__":
+    init_db()
     app.run(host='0.0.0.0', port=5000, debug=True)
+else:
+    # Serverless: lazy init on first request
+    @app.before_request
+    def ensure_db():
+        if not hasattr(app, '_db_initialized'):
+            try:
+                db.create_all()
+                app._db_initialized = True
+            except:
+                pass
