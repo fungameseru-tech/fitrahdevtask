@@ -3,19 +3,10 @@
   "builds": [
     {
       "src": "api/index.py",
-      "use": "@vercel/python"
-    },
-    {
-      "src": "Frontend/index.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "Frontend/admin.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "Frontend/script.js",
-      "use": "@vercel/static"
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "15mb"
+      }
     }
   ],
   "routes": [
